@@ -60,10 +60,21 @@ JSON originated as a subset of what you can write write in JavaScript source cod
 
 * JavaScript also has a built in function for converting JSON strings into JavaScript objects: `JSON.parse()`
 
-Ex:` '{"name":"John", "age":30, "city":"New York"}'`
-Using JS function `JSON.parse()`, you'd convert text into an object: `const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');`
+Ex:
+` '{"name":"John", "age":30, "city":"New York"}'`
+
+Using JS function `JSON.parse()`, you'd convert text into an object:
+`const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');`
 
 * JavaScript also has a built in function for converting an object into a JSON string: `JSON.stringify()`
 
 * In JSON, keys must be strings, written with double quotes: `{"name":"John"}`
 It's different than JavaScript's use.
+
+### JSON Rules
+1. Key/Value pairs
+2. Double quotes
+3. Must fall into data type (string, number, boolean, array, object)
+4. Data is separated by commas 
+5. Curly braces hold objects
+6. Square brackets hold arrays
