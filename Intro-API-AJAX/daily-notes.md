@@ -4,7 +4,7 @@
  * Application Programming Interface
  * an API specifies how software components should interact
 
-1. What kind of data is being returned from the API? Why are the benefits of using this data format? **JSON has an easy, readable format** 
+1. What kind of data is being returned from the API? Why are the benefits of using this data format? **JSON has an easy, readable format. JSON is parsed into a ready-to-use JavaScript object.** 
 
 2. How do you get data for all clues? (i.e., what's the URL you'd need to use?) **/clues**
 
@@ -23,7 +23,21 @@
 8. What type of request is being made when you open a url in the browser? **GET request (retrieve data from API)**
 
 ### Terms to know
-1. 
+1. Status code
+2. **HTTP Methods:**
+The two most common HTTP methods are: GET and POST.
+3. **The GET Method:**
+GET is used to request data from a specified resource. 
+4. **POST Method:**
+POST is used to send data to a server to create/update a resource.
+5. **PUT Method:**
+PUT is used to send data to a server to create/update a resource.
+6. **HEAD Method:**
+HEAD is almost identical to GET, but without the response body.
+7. **DELETE Method:**
+The DELETE method deletes the specified resource.
+
+
 
 ## Fetch Basics
 
@@ -40,14 +54,16 @@
 
 * JSON stands for *J*ava*S*cript *O*bject *N*otation
 
-* ***JSON is data. Objects are code.***
+* **JSON is data. Objects are code.**
 
 JSON originated as a subset of what you can write write in JavaScript source code, i.e. it looks like array literals and object literals with specific restrictions. But the important difference is that JSON is an interchange format. You send a string containing JSON to something and they parse it and get the data out. Moreover, when you receive JSON you parse it using `JSON.parse()`.
 
-* JavaScript has a built in function for converting JSON strings into JavaScript objects:
+* JavaScript also has a built in function for converting JSON strings into JavaScript objects: `JSON.parse()`
 
-`JSON.parse()`
+Ex:` '{"name":"John", "age":30, "city":"New York"}'`
+Using JS function `JSON.parse()`, you'd convert text into an object: `const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');`
 
-* JavaScript also has a built in function for converting an object into a JSON string:
+* JavaScript also has a built in function for converting an object into a JSON string: `JSON.stringify()`
 
-`JSON.stringify()`
+* In JSON, keys must be strings, written with double quotes: `{"name":"John"}`
+It's different than JavaScript's use.
