@@ -39,9 +39,10 @@ The DELETE method deletes the specified resource.
 
 
 
-## Fetch Basics
+## Fetch Basics / JSON Recipe
 
 *   follows the example.txt
+
 `fetch('example.txt')
     .then( response => response.txt())
     .then( text => {
