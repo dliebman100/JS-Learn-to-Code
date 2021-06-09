@@ -157,7 +157,7 @@
  * Now, write the same function using the arrow syntax.
  */
 const getGreetingFunction = (hour) => {
-  if (hour > 24 || hour < 0){
+  if (hour > 24 || hour < 0) {
     return "INVALID INPUT";
   }
   if (hour < 12) {
@@ -379,11 +379,22 @@ const numbers = [32, 91, 34, 7, 12];
 
 //letting i start @ the length of the array - 1 (last index would be by definition the last part of the array)
 //letting i-- would end the condition of the loop (i > -1) 
-// const reverseString = (message) => {
-//   for (let i = message.length - 1; i > -1; i--) {
-//     console.log(message[i]);
-//   }
-// }
+const reverseString = (str) => {
+  // Step 1. Use the split() method to return a new array
+  var splitString = str.split(""); // var splitString = "hello".split("");
+  // ["h", "e", "l", "l", "o"]
+
+  // Step 2. Use the reverse() method to reverse the new created array
+  var reverseArray = splitString.reverse(); // var reverseArray = ["h", "e", "l", "l", "o"].reverse();
+  // ["o", "l", "l", "e", "h"]
+
+  // Step 3. Use the join() method to join all elements of the array into a string
+  var joinArray = reverseArray.join(""); // var joinArray = ["o", "l", "l", "e", "h"].join("");
+  // "olleh"
+
+  //Step 4. Return the reversed string
+  return joinArray; // "olleh"
+}
 // console.log(reverseString("hello"));
 // console.log(reverseString("98765"));
 
@@ -430,14 +441,11 @@ console.log(getTransformedArray());
  * arrayify("write a useful function") => ["write", "a", "useful", "function"]
  */
 
-// function arrayify(string) {
-//   let sentence = [];
-//   for (let i = 0; i < string.length; i++) {
-
-//   }
-//   return sentence;
-// }
-// let result1 = arrayify(["write a useful function"]);
+// const arrayify = (string) => {
+//   Array.from(string).forEach(function(element){
+//   console.log(element);
+// });
+// let result1 = arrayify("write a useful function");
 // console.log(result1);
 
 /*
