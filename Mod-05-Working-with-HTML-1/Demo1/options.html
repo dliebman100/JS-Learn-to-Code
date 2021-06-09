@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Options</title>
+  <script src="js/options.js"></script>
+</head>
+
+<body>
+  <p>
+    <label for="payRate">Pay Rate:</label>
+    <input type="text" id="payRate" />
+  </p>
+
+  <p>
+    <label for="hrsWorked">Hours Worked:</label>
+    <input type="text" id="hrsWorked" />
+  </p>
+
+  <p>
+    <input type="checkbox" name="" id="hourly">
+    <label for="hourly">Paid hourly?</label>
+  </p>
+  <p>
+    OPTIONS:
+    <input type="checkbox" name="" id="insurance">
+    <label for="insurance">insurance ($25)</label>
+    &nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="" id="busPass">
+    <label for="busPass">Unlimited Bus Pass ($12.50)?</label>
+    &nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="" id="retirement">
+    <label for="retirement">401K (3% ded)?</label>
+  </p>
+  <p>
+    PAY 10% TAX:
+    <input type="radio" name="taxes" id="yesTaxes" checked>
+    <label for="yesTaxes">Yes</label>
+    &nbsp;&nbsp;&nbsp;
+    <input type="radio" name="taxes" id="noTaxes">
+    <label for="noTaxes">No</label>
+  </p>
+  <p>
+    <input type="button" id="calcPayBtn" value="Calculate Your Pay">
+  </p>
+  <p id="grossPay"></p>
+  <p id="benefitsCost"></p>
+  <p id="taxes"></p>
+  <p id="netPay"></p>
+</body>
+
+</html>

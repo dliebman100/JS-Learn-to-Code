@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+    <div id="messageDiv"></div>
+    <script>
+        //date to the user in a DIV at the top of the page
+
+        //Get today's date
+        let today = new Date();
+
+        //Get the day num and convert it into the day name
+        let dayOfWeekNum = today.getDay();       // values 0-6
+        let dayNames = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wexdnesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+        ];
+        let dayName = dayNames[dayOfWeekNum];
+        //Get the JS month num (0-11) and convert it into the month name and the human (1-12) month num
+        let humanMonth = today.getMonth() + 1;   // values 1-12
+        let jsMonth = today.getMonth();          // values 0-11
+        let monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        let monthName = monthNames[jsMonth]; 
+
+        //Get day of the month (1-31)
+        let dayOfMonth = today.getDate();
+
+        //Get the full year (ex:2022)
+        let year = today.getFullYear();
+
+        //welcome message
+        let welcomeMessage = "Welcome, today is " + dayName + ", " + monthName + " " + dayOfMonth + ", " + year + ".";
+
+        //Find the div whose is "messageDiv" and put the message there
+        const div = document.getElementById("messageDiv");
+        div.innerHTML = welcomeMessage;
+    </script>
+</body>
+</html>
