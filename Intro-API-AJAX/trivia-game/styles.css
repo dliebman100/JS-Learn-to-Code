@@ -1,3 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+
+body {
+    background-color: #51bbc9;
+    font-family: "Permanent Marker";
+    font-size: 1.5rem;
+    padding: 10px 100px 10px 10px;
+}
+
+h2 {
+    position: relative;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: white;
+    bottom: 4px;
+    z-index: -1;
+}
+input {
+    margin-bottom: 20px;
+    border: 3px solid black;
+    background: #8cd4de;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: point
+}
+
+.js-questions-form-heading {
+    display: flex;
+    flex-direction: column;
+}
+
+.js-questions-form-input {
+    display: inline-block;
+    position: relative;
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-bottom: 60px;
+}
+
+.js-questions-form-input::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    height: 50px;
+    width: 90px;
+    border-radius: 0 0 100%;
+    box-shadow: -2px -2px 0 0 #000 inset, -23px 0 0 0 #fff inset, -25px -2px 0 0 #000 inset;
+}
+
 .error {
     color: red;
 }

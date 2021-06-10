@@ -48,7 +48,7 @@ window.onload = function () {
             questionContainer.append(errorElement);
         });
     fetch("http://jservice.io/api/clues") // GET request
-    //the response method
+        //the response method
         .then(response => response.json()) // simplified arrow syntax
         .then(data => {
             console.log("clues data", data);
@@ -60,41 +60,101 @@ window.onload = function () {
     // const sum = 1 + 10;
     // console.log("sum", sum);
 
+    //Excercise 1
+    fetch("http://jservice.io/api/categories?count=10")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("categories data:", data);
+            data.forEach((category) => {
+                console.log("category data", category);
+
+                const categoriesList = document.querySelector(".js-categories-list");
+                const categoriesListItem = document.createElement("li");
+                categoriesListItem.innerText = `${category.title}`;
+                categoriesList.append(categories);
+            });
+        })
+        .catch((error) => console.log(error));
     const questionsForm = document.querySelector(".js-questions-form");
     questionsForm.onsubmit = onQuestionsFormSubmit;
+
+    //Exercise 2
+    const categoryForm = document.querySelector(".js-category-form");
+    categoryForm.onsubmit = onCategoryFormSubmit;
 };
 
 function onQuestionsFormSubmit(event) {
-    //prevent the default behavior of the form to refresh unnecessarily
+    // prevent the default behavior of a form
     event.preventDefault();
-    console.log("hello from onQuestionsFormSubmit")
-
-    //make an API call to get the questions from the jService API
+    console.log("hello from onQuestionsFormSubmit");
+    // make an API call to get the questions from the jService API
 
     const userInput = document.querySelector(".js-questions-form-input").value;
 
-    fetch(`http://jservice.io/api/random?count=${userInput || 10}`) // GET request and add the URL
-        .then(response => response.json()) //process the data aka the json  
-        .then(data => {
+    fetch(`http://jservice.io/api/random?count=${userInput || 10}`)
+        .then((response) => response.json())
+        .then((data) => {
             console.log("onQuestionsFormSubmit data", data);
-
-            //once we get back data from API we manipulate the DOM to display the results within the unordered list
-            const questionsFormHeading = document.querySelector(".js-questions-form-heading");
-
+            // DOM manipulation to display the results within the unordered list
+            const questionsFormHeading = document.querySelector(
+                ".js-questions-form-heading"
+            );
             const questionsList = document.querySelector(".js-questions-list");
             questionsFormHeading.innerText = `${data.length} Random Trivia Questions`;
+
             questionsList.innerText = "";
 
             for (let index = 0; index < data.length; index++) {
-                //store the question in the variable question
                 const question = data[index].question;
                 const questionListItem = document.createElement("li");
-                questionListItem.innerText = `Question ${ index + 1 }: ${question}`;
+                questionListItem.innerText = `Question ${index + 1}: ${question}`;
                 questionsList.append(questionListItem);
             }
+
             // refactor the for loop ^^ to use forEach()
-
-
         })
-        .catch(error => console.log(error));
+        .catch(err => {
+            let nm = err.name;
+            let msg = err.message;
+            console.log(`CATCH: ${nm} ${msg}`);
+        });
+}
+
+function onCategoryFormSubmit(event) {
+    event.preventDefault(); // prevents browser refresh
+
+    // get the input from the user
+    const userInput = document.querySelector(".js-category-form-input").value;
+
+    // fetch the data from the API
+    fetch(`http://jservice.io/api/category?id=${userInput}`)
+        .then((response) => response.json())
+        .then((data) => {
+            // when the data come back, do DOM manipulation
+            console.log("category form data", data);
+
+            // update the heading with the category title
+            const categoryFormHeading = document.querySelector(
+                ".js-categoryById-form-heading"
+            );
+            categoryFormHeading.innerText = `${data.title} Trivia Questions`;
+
+            // display the results within the unordered list
+            const categoryQuestionsList = document.querySelector(
+                ".js-categoryById-list"
+            );
+
+            categoryQuestionsList.innerText = ""; // reset the category questions form
+
+            for (let index = 0; index < data.clues.length; index++) {
+                const question = data.clues[index].question;
+                // console.log("data.clues[index]", data.clues[index])
+                // console.log("question", question);
+                const categoryQuestionListItem = document.createElement("li");
+                categoryQuestionListItem.innerText = `Question ${
+            index + 1
+          }: ${question}`;
+                categoryQuestionsList.append(categoryQuestionListItem);
+            }
+        });
 }
