@@ -48,6 +48,7 @@ window.onload = function () {
             questionContainer.append(errorElement);
         });
     fetch("http://jservice.io/api/clues") // GET request
+    //the response method
         .then(response => response.json()) // simplified arrow syntax
         .then(data => {
             console.log("clues data", data);
